@@ -9,7 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-    <link rel="stylesheet" href="<?= assets('assets/css/bundle.css')?>">
+    <link rel="stylesheet" href="<?= assets('assets/css/bundle.css'); ?>">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 </head>
 <body>
 <!--[if lte IE 9]>
@@ -36,23 +37,13 @@
         <nav class="blocheader__nav">
             <h2 class="hidden">Ma navigation principale</h2>
             <ul class="blocheader__nav__list list">
+                <?php foreach(pattes_get_menu('main')->getItems() as $item): ?>
+                    <li class="list__item">
+                        <a href="<?= $item->url; ?>" class="list__item__link"><?= $item->label; ?></a>
+                    </li>
+                <?php endforeach; ?>
                 <li class="list__item">
-                    <a href="#" class="list__item__link active" title="Aller vers la page accueil du site 'La maison du 1002 pattes'">Accueil</a>
-                </li>
-                <li class="list__item">
-                    <a href="./pages/aide.html" class="list__item__link indexpage" title="Aller vers la page 'Vous aider ?' du site 'La maison du 1002 pattes'">Vous aider&nbsp;?</a>
-                </li>
-                <li class="list__item">
-                    <a href="./pages/apropos.html" class="list__item__link" title="Aller vers la page 'À propos de nous' du site 'La maison du 1002 pattes'">À propos de nous</a>
-                </li>
-                <li class="list__item">
-                    <a href="./pages/equipe.html" class="list__item__link" title="Aller vers la page 'Notre équipe' du site 'La maison du 1002 pattes'">Notre équipe</a>
-                </li>
-                <li class="list__item">
-                    <a href="pages/contact.php" class="list__item__link" title="Aller vers la page 'Nous contacter' du site 'La maison du 1002 pattes'">Nous contacter</a>
-                </li>
-                <li class="list__item">
-                    <a href="./pages/don.html" class="list__item__link link--noborder" title="Aller vers la page 'Faire un don' du site 'La maison du 1002 pattes'">Faire un don</a>
+                    <a href="./pages/dons" class="list__item__link link--noborder" title="Aller vers la page 'Faire un don' du site 'La maison du 1002 pattes'">Faire un don</a>
                 </li>
             </ul>
         </nav>
@@ -60,7 +51,7 @@
     <div class="blocheader__desc__img">
         <div itemscope itemtype="http://schema.org/Organization" class="blocheader__desc">
             <p itemprop="description" class=" blocheader__desc__text">
-                La maison du 1002 est une asbl qui aident les enfants, adolescents et familles en difficultés.
+                La maison du 1002 est une asbl qui aide les enfants, adolescents et familles en difficultés.
             </p>
         </div>
     </div>
